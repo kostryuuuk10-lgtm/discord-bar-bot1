@@ -15,8 +15,8 @@ const client = new Client({
 });
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENROUTER_API_KEY,
-  baseURL: "https://openrouter.ai/api/v1"
+  apiKey: process.env.GROQ_API_KEY,
+  baseURL: "https://api.groq.com/openai/v1"
 });
 
 client.once("ready", () => {
@@ -130,10 +130,11 @@ client.on("messageCreate", async message => {
   try {
 
     const response = await openai.chat.completions.create({
-  model: "mistralai/mistral-7b-instruct",
+  model: "llama-3.1-8b-instant",
   messages: convo.messages,
-  temperature: 1.1,
-  max_tokens: 800
+  temperature: 0.7,
+  top_p: 0.9,
+  max_tokens: 700
 });
 
 const reply = response.choices[0].message.content;

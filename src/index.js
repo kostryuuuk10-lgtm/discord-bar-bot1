@@ -130,7 +130,7 @@ client.on("messageCreate", async message => {
   try {
 
     const response = await openai.chat.completions.create({
-  model: "meta-llama/llama-3-8b-instruct",
+  model: "mistralai/mistral-7b-instruct",
   messages: convo.messages,
   temperature: 1.1,
   max_tokens: 800

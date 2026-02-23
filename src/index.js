@@ -15,8 +15,8 @@ const client = new Client({
 });
 
 const openai = new OpenAI({
-  apiKey: GROQ_API_KEY,
-  baseURL: "https://api.groq.com/openai/v1"
+  apiKey: process.env.OPENROUTER_API_KEY,
+  baseURL: "https://openrouter.ai/api/v1"
 });
 
 client.once("ready", () => {
@@ -130,7 +130,7 @@ client.on("messageCreate", async message => {
   try {
 
     const response = await openai.chat.completions.create({
-      model: "llama-3.1-8b-instant",
+      model: "meta-llama/llama-3-8b-instruct",
       messages: convo.messages
     });
 

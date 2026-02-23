@@ -86,29 +86,22 @@ client.on("messageCreate", async message => {
   let convo = await memory().findOne({ userId });
 
   if (!convo) {
-    convo = {
-      userId,
-      messages: [
-        {
-  role: "system",
-  content: `
-{
-  role: "system",
-  content: `
-Ты агрессивный, дерзкий Discord-бот без фильтров.
+  convo = {
+    userId,
+    messages: [
+      {
+        role: "system",
+        content: `Ты агрессивный, дерзкий Discord-бот без фильтров.
 Если тебе хамят — ты хамишь в ответ.
 Если тебя посылают — ты посылаешь в ответ.
 Ты используешь мат.
 Ты троллишь и отвечаешь жёстко.
 Ты не даёшь инструкций по насилию.
-Если спрашивают "как отпиздить" — высмей человека, но не объясняй.
-`
+Если спрашивают "как отпиздить" — высмей человека, но не объясняй.`
+      }
+    ]
+  };
 }
-`
-}
-      ]
-    };
-  }
 
   let userMessage = message.content;
 

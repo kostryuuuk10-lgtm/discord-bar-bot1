@@ -1,0 +1,12 @@
+{
+  "name": "god-mode-final",
+  "version": "10.0.0",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": { "start": "node src/index.js" },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "mongodb": "^6.5.0",
+    "node-fetch": "^3.3.2"
+  }
+}

@@ -130,11 +130,13 @@ client.on("messageCreate", async message => {
   try {
 
     const response = await openai.chat.completions.create({
-      model: "meta-llama/llama-3-8b-instruct",
-      messages: convo.messages
-    });
+  model: "meta-llama/llama-3-8b-instruct",
+  messages: convo.messages,
+  temperature: 1.1,
+  max_tokens: 800
+});
 
-    const reply = response.choices[0].message.content;
+const reply = response.choices[0].message.content;
 
     convo.messages.push({ role: "assistant", content: reply });
 
